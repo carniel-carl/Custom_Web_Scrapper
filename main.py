@@ -9,9 +9,11 @@ content = response.text
 
 soup = BeautifulSoup(content, "html.parser")
 
-all_book = soup.select(selector="h3 .bc-link")
+all_book = soup.select(selector="li div .bc-row-responsive")
 
-with open("computer_and_tech_book.csv", mode="a", newline="\n") as data:
-    writer = csv.writer(data)
-    for book in all_book:
-        writer.writerow(book)
+# with open("computer_and_tech_book.csv", mode="a", newline="\n") as data:
+#     writer = csv.writer(data)
+#     for book in all_book:
+#         writer.writerow(book)
+
+print(all_book[0])
