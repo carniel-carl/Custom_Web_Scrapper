@@ -11,7 +11,7 @@ soup = BeautifulSoup(content, "html.parser")
 
 all_book = soup.select(selector="h3 .bc-link")
 
-for book in all_book:
-    print(book.getText())
-
-# print(len(all_book))
+with open("computer_and_tech_book.csv", mode="a", newline="\n") as data:
+    writer = csv.writer(data)
+    for book in all_book:
+        writer.writerow(book)
